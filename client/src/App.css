@@ -29,6 +29,20 @@ body{
 .card-content {
   flex-grow: 1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-content {
+  overflow-x: auto;         
+  overflow-y: hidden;       
+  white-space: nowrap;      
+  word-wrap: normal;        
+  background-color: #f9f9f9; 
+  border-radius: 4px;
+  padding: 8px;
+  margin-top: 8px;
+  font-family: monospace; 
 }
 
 .card-content input,

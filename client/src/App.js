@@ -5,7 +5,7 @@ import React, {
 import { AppBar, Toolbar, Typography, Container, Grid, Card, CardContent, TextField, Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import axios from 'axios';
-import './App.css'; 
+import './App.css';
 
 const apiUrl = 'http://localhost:3000';
 
@@ -66,10 +66,10 @@ function App() {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Container maxWidth="lg" className="container">
-                <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6} md={4}>
-                        <Card className="card">
+            <Container maxWidth={false} disableGutters>
+                <Grid container spacing={2} disableEqualOverflow>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }} sx={{ p: 2 }}>
+                        <Card sx={{ width: '100%' }}>
                             <CardContent className="card-content">
                                 <TextField
                                     label="Title"
@@ -87,6 +87,7 @@ function App() {
                                     multiline
                                     fullWidth
                                     margin="normal"
+
                                 />
                             </CardContent>
                             <Button
@@ -101,15 +102,23 @@ function App() {
                         </Card>
                     </Grid>
                     {posts.map(post => (
-                        <Grid key={post._id} item xs={12} sm={6} md={4}>
-                            <Card className="card">
+                        <Grid key={post._id}
+                            size={{ xs: 12, sm: 6, md: 4 }}
+                            sx={{ p: 1 }}>
+                            <Card sx={{ width: '100%' }}>
                                 <CardContent className="card-content">
                                     <Typography variant="h5"
-                                        className="post-title">
+                                        className="post-title"
+                                        sx={{
+                                            backgroundColor: '#f0f0f0',
+                                            padding: '8px',
+                                            borderRadius: '4px'
+                                        }}
+                                    >
                                         {post.title}
                                     </Typography>
                                     <Typography variant="body2"
-                                        className="post-content">
+                                        className="post-content" sx={{ whiteSpace: 'pre-wrap' }}>
                                         {post.content}
                                     </Typography>
                                 </CardContent>
@@ -122,7 +131,6 @@ function App() {
                                     >
                                         Delete
                                     </Button>
-                                    {/* Update button can be added similarly */}
                                 </div>
                             </Card>
                         </Grid>
