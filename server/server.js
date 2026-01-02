@@ -4,7 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // MongoDB Connection
 mongoose.connect('mongodb+srv://Madhusudan:Friends%40123@cluster0.f6ishlk.mongodb.net/blogDB',
@@ -35,6 +35,10 @@ const Post = mongoose.model('Post', {
 app.use(bodyParser.json());
 
 // Routes
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
+});
+
 app.get('/posts', async (req, res) => {
     try {
         const posts = await Post.find();
