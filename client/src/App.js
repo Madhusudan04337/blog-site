@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CreateIcon from '@mui/icons-material/Create';
 import axios from 'axios';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = process.env.REACT_APP_API_URL;
 axios.get(`${apiUrl}/api/posts`);
 
 
